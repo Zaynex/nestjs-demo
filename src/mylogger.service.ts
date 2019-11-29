@@ -5,7 +5,7 @@ import { Request } from 'express';
 @Injectable()
 export class MyLogger {
   constructor(@Inject(REQUEST) private readonly request: Request) {}
-  log(message) {
-    Logger.log('message');
+  log(message: string) {
+    Logger.log(`${this.request.originalUrl} ${message}`);
   }
 }

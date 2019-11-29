@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { Module, Scope } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { MyLoggerModule } from './mylogger.module';
@@ -11,6 +11,7 @@ import { LoggingInterceptor } from './log.interceptor';
     AppService,
     {
       provide: APP_INTERCEPTOR,
+      scope: Scope.REQUEST,
       useClass: LoggingInterceptor,
     },
   ],

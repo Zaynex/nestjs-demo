@@ -10,7 +10,7 @@ export class LoggingInterceptor implements NestInterceptor {
   }
   intercept(context: ExecutionContext, next: CallHandler): Observable<any> {
     console.log('Before...');
-    this.logger.log("hello");
+    this.logger.log("hello intercept");
     const now = Date.now();
     return next
       .handle()
